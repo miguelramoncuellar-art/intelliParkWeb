@@ -29,7 +29,7 @@
           <label for="user_email">Correo Electrónico</label>
           <div class="input-shell" [class.invalid]="emailControl().invalid && emailControl().touched">
             <span class="input-icon">👤</span>
-            <input id="user_email" type="user_email" formControlName="user_email" placeholder="Digite el correo" />
+            <input id="user_email" type="email" formControlName="user_email" placeholder="Digite el correo" />
           </div>
           @if (emailControl().hasError('required') && emailControl().touched) {
             <small class="error-text">El correo es obligatorio.</small>
