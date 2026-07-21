@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-
-import { ParkingRecord } from '../../interfaces/parking.interfaces';
+import { ParkingRecord, VehicleType } from '../../interfaces/parking.interfaces';
 import { ParkingService } from '../../services/parking.service';
 
 
@@ -26,7 +25,7 @@ export class ParkingHomeComponent {
 
   readonly checkInForm = this.formBuilder.nonNullable.group({
     vehicle_plate: ['', [Validators.required, Validators.minLength(5)]],
-    vehicle_type: ['carro', [Validators.required]]
+    vehicle_type: this.formBuilder.nonNullable.control<VehicleType>('carro', [Validators.required])
   });
 
   readonly checkOutForm = this.formBuilder.nonNullable.group({
