@@ -58,7 +58,7 @@ export class ParkingHomeComponent {
     });
   }
 
-  registerCheckIn(keepMessages = true): void {
+  registerCheckIn(keepMessages = false): void {
     this.clearMessages();
 
     if (this.checkInForm.invalid) {
@@ -91,7 +91,7 @@ export class ParkingHomeComponent {
     });
   }
 
-  registerCheckOut(keepMessages =true): void {
+  registerCheckOut(keepMessages =false): void {
 
     this.clearMessages();
 
