@@ -39,10 +39,12 @@ export class VehiclesHomeComponent {
     this.loadVehicles();
   }
 
-  loadVehicles(): void {
+  loadVehicles(keepMessages = false): void {
 
     this.isLoading.set(true);
-    this.clearMessages();
+    if (!keepMessages) {
+      this.clearMessages();
+    }
 
     this._vehiclesService.getVehicles().subscribe({
       next: (vehicles) => {
@@ -90,7 +92,7 @@ export class VehiclesHomeComponent {
           vehicle_color: ''
         });
 
-        this.loadVehicles();
+        this.loadVehicles(true);
       },
       error: (error) => {
         this.errorMessage.set(

@@ -37,10 +37,12 @@ export class ParkingHomeComponent {
     this.loadActiveRecords();
   }
 
-  loadActiveRecords(): void {
+  loadActiveRecords(keepMessages = false): void {
 
     this.isLoading.set(true);
-    this.clearMessages();
+    if (!keepMessages) {
+      this.clearMessages();
+    }
 
     this._parkingService.getActiveParkingRecords().subscribe({
       next: (recordsResponse) => {
@@ -56,7 +58,7 @@ export class ParkingHomeComponent {
     });
   }
 
-  registerCheckIn(): void {
+  registerCheckIn(keepMessages = true): void {
     this.clearMessages();
 
     if (this.checkInForm.invalid) {
@@ -89,7 +91,7 @@ export class ParkingHomeComponent {
     });
   }
 
-  registerCheckOut(): void {
+  registerCheckOut(keepMessages =true): void {
 
     this.clearMessages();
 
